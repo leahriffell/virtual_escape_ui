@@ -5,6 +5,7 @@ services:
 - postgresql
 script:
 - bundle
+- bundle exec rails db:{create,migrate} RAILS_ENV=test
 - bundle exec rspec
 deploy:
   provider: heroku
