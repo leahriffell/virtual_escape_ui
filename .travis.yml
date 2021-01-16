@@ -1,0 +1,23 @@
+language: ruby
+rbenv:
+- 2.5.3
+services:
+- postgresql
+script:
+- bundle
+- bundle exec rspec
+deploy:
+  provider: heroku
+  api_key:
+    secure: GsEpmSQ2HliKQIMGRo/kaD6e2cvVSHiTHvHjMyneZMyTkEv7HjILd4UEmrKjjrWr0hGvRmNHTSzMPANRf7uHDxFrSq2Jw7po1MM/rAwEF5AnrKtvioTbHqinWC4L4yo1WCx3tK9vq+bU5uX+6uhx+hXPGGtHQQ5Mc5eJN5hRGeBB0syt7KQj9UtxrgybT+QPd0smeKCdhH86AUyErIbRIg+C6g1LC+wmwyOGbWQDykkYwhp3Tj5gm/G2Y4sJpw1sZiy1JkSlzydmB7WdQhXwoaq0NUZ6mykhNsT6OX7q9bJnB48mODS7Soz0/+fbNdL0qAE/HL6gRGzXFu7dCoS0lUf4fTaUnTkwKiy/9udZVyGL8eq329hRWAe2NBdhdpfAxyJ1YUMNtelgyF/5MO0tGg9LDJ1lB2EHqb1D0kigD9uiSgCOEoXuXhTTmFFFKhWGTpwgN6kCCI+R6/ylFTgpkcn8Iloa0pWGQCcCO1YzhUfQl96XWVo+78EMu0fSsJgj1Twq/5KRwgvWCQxO85ovZZ/gNUthSgXnw/qNhMAgHTw8OLuj54bIj9fpasXThx8vr/70E/+/0X3bu0dcds18Mdwt1h6uHQicQu/MTXubzVb/i/Ur6eyD272g2g7Yu5i+TJWBWwRn2cmajA9OC/GO/oMDOjWQqK/8j1NUe9KDnbY=
+  app: virtual-escape
+  on:
+    repo: virtual_escape_ui
+    branch: main
+  skip_cleanup: 'true'
+notifications:
+  email:
+    on_success: never
+    on_failure: never
+cache:
+- bundler
